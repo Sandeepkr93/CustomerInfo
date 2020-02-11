@@ -1,0 +1,8 @@
+---
+# tasks file for common
+- name: Create Dir to Downlaod Tomcat. 
+  file: path=/opt/SP/apps/tomcat state=directory
+
+- include: java.yml
+- include: tomcat.yml
+- include: nginx.yml
