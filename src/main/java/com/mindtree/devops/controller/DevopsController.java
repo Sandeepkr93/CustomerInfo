@@ -5,64 +5,64 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class DevopsController {
+private class DevopsController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String menu() {	
+	private String menu() {	
 		return "menu";
 	}
 	@RequestMapping("/devops")
-	public String devops()
+	private String devops()
 	{
 		return "devops";
 	}
 	@RequestMapping("/tools")
-	public String tools()
+	private String tools()
 	{
 		return "tools";
 	}
 	@RequestMapping("/developer")
-	public String developer()
+	private String developer()
 	{
 		return "developer";
 	}
 	@RequestMapping("/git")
-	public String git()
+	private String git()
 	{
 		return "git";
 	}
 	@RequestMapping("/jenkins")
-	public String jenkins()
+	private String jenkins()
 	{
 		return "jenkins";
 	}
 	@RequestMapping("/maven")
-	public String maven()
+	private String maven()
 	{
 		return "maven";
 	}
 	@RequestMapping("/sonarqube")
-	public String sonarqube()
+	private String sonarqube()
 	{
 		return "sonarqube";
 	}
 	@RequestMapping("/artifactory")
-	public String artifactory()
+	private String artifactory()
 	{
 		return "artifactory";
 	}
 	@RequestMapping("/docker")
-	public String docker()
+	private String docker()
 	{
 		return "docker";
 	}
 	@RequestMapping("/ansible")
-	public String ansible()
+	private String ansible()
 	{
 		return "ansible";
 	}
 	@RequestMapping("/terraform")
-	public String terraform()
+	private String terraform()
 	{
 		return "terraform";
 	}
