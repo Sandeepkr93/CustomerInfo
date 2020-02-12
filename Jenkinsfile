@@ -25,7 +25,9 @@ node {
    stage('Maven-Test') {
    sh label: 'TEST', script: 'mvn test'
   }
-  
+   stage('Maven-Package') {
+   sh label: 'PACKAGE', script: 'mvn package'
+  }
    stage('Archive-Artifacts') {
    archiveArtifacts 'target/*.war'
   }
@@ -39,14 +41,17 @@ def server= Artifactory.server 'jfrog'
                     }"""
                     server.upload (uploadSpec)
 }  
-    
-  stage('Input for deploy in test server') {  
-   input('Do you want to test server proceed?')      
+  stage('Input for deploy in Prod ENV') {            
+   input('Do you want to deploy into production server proceed?')
         }
-   stage('Docker-Stage-Deployment') {
-   sh label: 'DOCKER DEPLOYMENT', script: 'docker-compose up -d --build'
-  }
-	 
+  stage('Geting Ready For Ansible') {
+  sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > index.html"
+}  
+   
+   stage('Prod Deployment on AWS'){
+   sh label: 'terraform', script: '/bin/terraform  init'
+   sh label: 'terraform', script: '/bin/terraform  apply -input=false -auto-approve'
+   } 
 
 notify('Job Completed')   
 } catch (err) {
