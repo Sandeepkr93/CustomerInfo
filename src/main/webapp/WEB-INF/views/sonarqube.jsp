@@ -36,7 +36,7 @@
 <div class="page-content styled">
   <div class="mini-page-lead">
 
-  <p class="text-center"><b>SonarQube is the leading tool for continuously inspecting the Code Quality and Security of your codebases<br>and guiding development teams during Code Reviews.</b></p>
+  <p>SonarQube is the leading tool for continuously inspecting the Code Quality and Security of your codebases<br>and guiding development teams during Code Reviews</p>
 
   <p>Covering <a href="/features/multi-languages/">27 programming languages</a>, while pairing-up with your existing software pipeline, SonarQube provides clear remediation guidance for developers to understand and fix issues and for teams overall to deliver better, safer software. With over 170,000 deployments, helping small development teams as well as global organizations, SonarQube provides the means for all teams and companies, around the world, to own and impact their Code Quality and Security.</p>
 </div>
