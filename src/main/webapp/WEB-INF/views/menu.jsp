@@ -39,7 +39,7 @@
 <img src="https://marketplace-cdn.atlassian.com/s/public/devops-hero-1-87966cfbc9c5713ae047551c7b22985c.png" alt="DevOps" style="width:100%">
 </div>
 <div class="footer">
-<p align="center" style="color:red;">&copy; 2019 mindtree.com</p>
+<p>&copy; 2019 mindtree.com</p>
 </div>
 </body>
 </html>
