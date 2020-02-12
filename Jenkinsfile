@@ -25,6 +25,9 @@ node {
    stage('Maven-Test') {
    sh label: 'TEST', script: 'mvn test'
   }
+   stage('Maven-Package') {
+   sh label: 'PACKAGE', script: 'mvn package'
+  }
    stage('Archive-Artifacts') {
    archiveArtifacts 'target/*.war'
   }
