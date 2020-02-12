@@ -4,15 +4,11 @@ node {
 
      
   stage('Git-Checkout') {
-   git 'https://github.com/Sandeepkr93/completedevops.git'
+   git 'https://github.com/Sandeepkr93/CustomerInfo.git'
   }
   stage('Input to continue forther') {
    input('git checkout done Do you want to forther proceed?')  
   }
- def project_path=""
- 
- dir(project_path) {
-    
   stage('Maven-Clean') {
    sh label: 'CLEAN', script: 'mvn clean'
   }
@@ -28,10 +24,6 @@ node {
   
    stage('Maven-Test') {
    sh label: 'TEST', script: 'mvn test'
-  }
-  
-   stage('Maven-Package') {
-   sh label: 'PACKAGE', script: 'mvn package'
   }
   
    stage('Archive-Artifacts') {
@@ -55,18 +47,6 @@ def server= Artifactory.server 'jfrog'
    sh label: 'DOCKER DEPLOYMENT', script: 'docker-compose up -d --build'
   }
 	 
- stage('Input for deploy in production server') {            
-   input('Do you want to deploy into production server proceed?')
-        }
-  stage('Geting Ready For Ansible') {
-  sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > index.html"
-}  
-   
-   stage('Prod Deployment on AWS'){
-   sh label: 'terraform', script: '/bin/terraform  init'
-   sh label: 'terraform', script: '/bin/terraform  apply -input=false -auto-approve'
-   }
-}
 
 notify('Job Completed')   
 } catch (err) {
